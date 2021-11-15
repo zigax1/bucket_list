@@ -2,10 +2,10 @@ const express = require('express');
 const app = express();
 const bucketRoute = express.Router();
 
-// users model
+// buckets model
 let bucket = require('../models/bucket');
 
-// Add Employee
+// Add bucket
 bucketRoute.route('/create').post((req, res, next) => {
     bucket.create(req.body, (error, data) => {
     if (error) {
@@ -16,7 +16,7 @@ bucketRoute.route('/create').post((req, res, next) => {
   })
 });
 
-// Get All Employees
+// Get All buckets
 bucketRoute.route('/').get((req, res) => {
   bucket.find((error, data) => {
     if (error) {
@@ -27,7 +27,7 @@ bucketRoute.route('/').get((req, res) => {
   })
 })
 
-// Get single employee
+// Get one bucket
 bucketRoute.route('/read/:id').get((req, res) => {
   bucket.findById(req.params.id, (error, data) => {
     if (error) {
@@ -39,7 +39,7 @@ bucketRoute.route('/read/:id').get((req, res) => {
 })
 
 
-// Delete employee
+// Delete bucket
 bucketRoute.route('/delete/:id').delete((req, res, next) => {
   bucket.findOneAndRemove(req.params.id, (error, data) => {
     if (error) {
