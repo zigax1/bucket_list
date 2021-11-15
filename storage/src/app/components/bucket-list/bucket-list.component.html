@@ -1,0 +1,36 @@
+<div class="container">
+    <p id="demo"></p>
+
+    <!-- No data message -->
+    <br>
+    
+
+    <p *ngIf="Bucket.length <= 0" class="no-data text-center">There is no Buckets added yet!</p>
+    <h3 class="left">All buckets ({{Bucket.length}})</h3>
+    <div class="btn btn-primary right">
+    <a class="teksta" routerLinkActive="active" routerLink="/create-bucket">Create new bucket</a>
+    </div>
+    <!-- Employee list -->
+    <table class="table table-border" *ngIf="Bucket.length > 0">
+      <thead class="table">
+        <tr>
+          <!--<th scope="col">Bucket ID</th>-->
+          <th scope="col">Name</th>
+          <th scope="col">Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let bucket of Bucket; let i = index">
+          <!--<th scope="row">{{bucket._id}}</th>-->
+          <td routerLink="/storage" class="klikni">{{bucket.name}}</td>
+          <td>{{bucket.location}}</td>
+
+          <td class="text-center">
+            <span class="delete" (click)="removeBucket(bucket, i)">
+              <button type="button" class="btn btn-danger btn-sm">Delete</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>

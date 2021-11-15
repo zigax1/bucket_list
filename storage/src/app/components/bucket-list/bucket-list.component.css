@@ -1,0 +1,19 @@
+.right {
+    float:right;
+    margin-bottom: 10px;
+}
+.teksta{
+    color: white;
+    text-decoration: none;
+}
+.left {
+    float:left;
+    margin-bottom: 10px;
+}
+
+.klikni:hover{
+    cursor: pointer;
+}
+.klikni:active{
+    background-color: rgb(206, 240, 250);
+}
