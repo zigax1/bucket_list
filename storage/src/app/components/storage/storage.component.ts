@@ -40,6 +40,9 @@ export class StorageComponent implements OnInit {
      this.Bucket = data;
     })    
   }
+
+
+
   removeBucket(bucket:any, index:any) {
     if(window.confirm('Do you really want to delete this object?')) {
         this.apiService.deleteBucket(bucket._id).subscribe((data) => {

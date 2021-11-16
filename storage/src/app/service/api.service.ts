@@ -3,7 +3,6 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, map } from 'rxjs/operators';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Bucket } from '../model/bucket';
-//import * as internal from 'stream';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +11,7 @@ import { Bucket } from '../model/bucket';
 export class ApiService {
   
   baseUri:string = 'http://localhost:4000/api';
+  //baseUri:string = 'http://express:4000/api';
   headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient) { }

@@ -8,7 +8,7 @@ import { StorageComponent } from './components/storage/storage.component';
 
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'create-bucket' },
+  { path: '', pathMatch: 'full', redirectTo: 'bucket-list' },
   { path: 'create-bucket', component: BucketCreateComponent },
   { path: 'bucket-list', component: BucketListComponent } ,
   { path: 'storage', component: StorageComponent }

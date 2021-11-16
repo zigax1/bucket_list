@@ -18,7 +18,7 @@ mongoose.connect(dbConfig.db, {
 )
 
 // Setting up port with express js
-const bucketRoute = require('../backend/routes/bucket.route')
+const bucketRoute = require('./routes/bucket.route')
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
