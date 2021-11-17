@@ -36,9 +36,6 @@ export class BucketCreateComponent implements OnInit {
     })
   }
 
-
-
-  // Getter to access form control
   get myForm(){
     return this.bucketForm.controls;
   }

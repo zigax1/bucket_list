@@ -13,8 +13,6 @@ import { HeaderComponent } from './components/header/header.component';
 import { StorageComponent } from './components/storage/storage.component';
 
 
-
-
 @NgModule({
   declarations: [
     AppComponent,

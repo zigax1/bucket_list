@@ -31,7 +31,6 @@ export class StorageComponent implements OnInit {
     this.details = !this.details;
     if(this.files = true){
     this.files = this.files;}
-
    }
 
    //iz bucket-list
@@ -40,8 +39,6 @@ export class StorageComponent implements OnInit {
      this.Bucket = data;
     })    
   }
-
-
 
   removeBucket(bucket:any, index:any) {
     if(window.confirm('Do you really want to delete this object?')) {
@@ -60,7 +57,6 @@ export class StorageComponent implements OnInit {
   onUpload(){
     const file = new FormData();
 
-
     file.append('image', this.selectedFile, this.selectedFile.name);
     this.http.post('url_od_cloud_storage', file)
       .subscribe(res => {
@@ -69,22 +65,4 @@ export class StorageComponent implements OnInit {
   }
   ngOnInit() {}
 
-
-/*this is data from the bucket-list.component.ts
-  Bucket:any = [];
-
-  readBucket(){
-    this.apiService.getBuckets().subscribe((data) => {
-     this.Bucket = data;
-    })    
-  }
-
-  removeBucket(bucket:any, index:any) {
-    if(window.confirm('Do you really want to delete this object?')) {
-      this.apiService.deleteBucket(bucket._id).subscribe((data) => {
-        this.Bucket.splice(index, 1);
-      }
-    )    
-  }
-} */
 }

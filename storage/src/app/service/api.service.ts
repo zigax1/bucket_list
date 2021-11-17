@@ -16,19 +16,19 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  // Create bucket
+  // create bucket
   createBucket(data:Bucket): Observable<Bucket> {
     let url = `${this.baseUri}/create`;
     return this.http.post<Bucket>(url, data)
 
   }
 
-  // Get all buckets
+  // get all buckets
   getBuckets(): Observable<Bucket[]> {
     return this.http.get<Bucket[]>(`${this.baseUri}`);
   }
 
-  // Delete bucket
+  // delete bucket
   deleteBucket(_id:string): Observable<any> {
     let url = `${this.baseUri}/delete/${_id}`;
     return this.http.delete(url, { headers: this.headers }).pipe(
@@ -37,7 +37,7 @@ export class ApiService {
   }
   
 
-  // Error handling 
+  // errorji
   errorMgmt(error: HttpErrorResponse) {
     let errorMessage = '';
     if (error.error instanceof ErrorEvent) {

@@ -2,10 +2,9 @@ const express = require('express');
 const app = express();
 const bucketRoute = express.Router();
 
-// buckets model
 let bucket = require('../models/bucket');
 
-// Add bucket
+// add bucket
 bucketRoute.route('/create').post((req, res, next) => {
     bucket.create(req.body, (error, data) => {
     if (error) {
@@ -16,7 +15,7 @@ bucketRoute.route('/create').post((req, res, next) => {
   })
 });
 
-// Get All buckets
+// get all buckets
 bucketRoute.route('/').get((req, res) => {
   bucket.find((error, data) => {
     if (error) {
@@ -27,19 +26,7 @@ bucketRoute.route('/').get((req, res) => {
   })
 })
 
-// Get one bucket
-bucketRoute.route('/read/:id').get((req, res) => {
-  bucket.findById(req.params.id, (error, data) => {
-    if (error) {
-      return next(error)
-    } else {
-      res.json(data)
-    }
-  })
-})
-
-
-// Delete bucket
+// delete bucket
 bucketRoute.route('/delete/:id').delete((req, res, next) => {
   bucket.findOneAndRemove(req.params.id, (error, data) => {
     if (error) {
@@ -48,6 +35,17 @@ bucketRoute.route('/delete/:id').delete((req, res, next) => {
       res.status(200).json({
         msg: data
       })
+    }
+  })
+})
+
+// get one bucket
+bucketRoute.route('/read/:id').get((req, res) => {
+  bucket.findById(req.params.id, (error, data) => {
+    if (error) {
+      return next(error)
+    } else {
+      res.json(data)
     }
   })
 })
